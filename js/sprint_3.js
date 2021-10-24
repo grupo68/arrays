@@ -1,4 +1,28 @@
+var prueba=[
+    {
+        "nombre":   "jose",
+        "edad"  :    15
+    },
+    {
+        "nombre":   "maria",
+        "edad"  :    11
+    },
+    {
+        "nombre":   "camel",
+        "edad"  :    2
+    },
+    {
+        "nombre":   "camel",
+        "edad"  :    23
+    },
+    {
+        "nombre":   "juan",
+        "edad"  :    50
+    }
+];
+
 var arreglo = [];
+var generico = [];
 var persona;
 
 function enviar(){ //inicio funcion agregar elementos a array
@@ -14,6 +38,7 @@ function enviar(){ //inicio funcion agregar elementos a array
     }
 
     arreglo.push(persona);
+    generico.push(persona);
     
     // condicional que limita el tamaño del mi array
     // if(arreglo.length >= 4){
@@ -29,8 +54,8 @@ function enviar(){ //inicio funcion agregar elementos a array
     
     
     console.log(arreglo);
-    console.log('edad: '+ mayor_edad(arreglo));
-    console.log('nuevo arreglo: '+ organizar(arreglo));
+    //console.log('edad: '+ mayor_edad(arreglo));
+    //console.log('nuevo arreglo: '+ organizar());
     
     //console.log(arreglo.length);
     //console.log()
@@ -50,12 +75,35 @@ function mayor_edad(edad){
     return max;
 }
 
-function organizar(arreglo){
-    var x =[];
-    for(var i=0; i < mayor_edad(arreglo); i++){
-        if(arreglo[i]['edad'] == i){
-            x.push(arreglo[i]);
-        }
+function organizar(){
+    var x =[];//array de salida
+    //if(arreglo.length != 0){
+    for(var i in arreglo){
+        // for(var j=0; j< prueba.length; j++){
+        
+            for(var j in arreglo){
+                if(arreglo[j]['edad'] == mayor_edad(arreglo)){
+                  x.push(arreglo[j]);
+                  arreglo.splice(j,1,0);
+              }
+          }
+        }   
+    
+    //}
+    console.log(x);
+   // console.log('arreglo_original: '+ arreglo);
+ }
+
+function promedio(){
+    var suma=0;
+    var j =0;
+    for(var i in generico){
+        suma = parseInt(suma) + parseInt(generico[i]['edad']) ;
+        //console.log(suma);
+        j++;
     }
-    return x;
+    console.log('el promedio de edades es: '+ (suma / j));
 }
+    // console.log(promedio(prueba));
+    // console.log(organizar()); 
+    // console.log('prueba: '+prueba);
