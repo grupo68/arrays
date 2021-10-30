@@ -91,6 +91,7 @@ function organizar(){
     
     //}
     console.log(x);
+    arreglo = x;
    // console.log('arreglo_original: '+ arreglo);
  }
 
